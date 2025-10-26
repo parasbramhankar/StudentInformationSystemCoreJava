@@ -11,14 +11,17 @@ public class Student {
     private String stream;
     private List<Subject>subjects;
 
-//    public Student(int studentId, String username, String password, String name, String stream) {
-//        this.studentId = studentId;
-//        this.username = username;
-//        this.password = password;
-//        this.name = name;
-//        this.stream = stream;
-//        this.subjects = new ArrayList<>();
-//    }
+    /**
+    public Student(int studentId, String username, String password, String name, String stream) {
+        this.studentId = studentId;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.stream = stream;
+        this.subjects = new ArrayList<>();
+    }
+
+  */
 
     public int getStudentId() {
         return studentId;
