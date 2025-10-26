@@ -6,12 +6,15 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner=new Scanner(System.in);
-        AdminService adminService=new AdminService();
-        StudentServices studentServices=new StudentServices();
-        List<Student> studentList=new ArrayList<>();
+
 
         while(true){
+            Scanner scanner=new Scanner(System.in);
+            AdminService adminService=new AdminService();
+            StudentServices studentServices=new StudentServices();
+            List<Student> studentList=new ArrayList<>();
+            Student student=new Student();
+
             System.out.println("1: Admin");
             System.out.println("2. Student");
             System.out.println("3. Exit");
@@ -34,7 +37,8 @@ public class Main {
 
                         switch (ch){
                             case 1:
-                                studentList=adminService.createStudent();
+                                student=adminService.createStudent();
+                                studentList.add(student);
 
                         }
                     }while()
