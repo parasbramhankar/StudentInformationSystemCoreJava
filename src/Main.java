@@ -23,7 +23,7 @@ public class Main {
             int choice= scanner.nextInt();
 
             switch (choice){
-                case1->{
+                case 1:
                     do {
                         System.out.println("1. Adding student");
                         System.out.println("2. View all Student");
@@ -39,9 +39,14 @@ public class Main {
                             case 1:
                                 student=adminService.createStudent();
                                 studentList.add(student);
+                                break;
+
+                            case 2:
+                                adminService.viewStudents(studentList);
+
 
                         }
-                    }while()
+                    }while();
                 }
             }
 
