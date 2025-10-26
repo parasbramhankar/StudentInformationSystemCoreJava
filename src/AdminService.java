@@ -28,9 +28,31 @@ public class AdminService {
         student.setName(stream);
 
         System.out.println("Enter marks details");
+        List<Subject>subjects=createSubject();
+        student.setSubjects(subjects);
 
+        students.add(student);
+    }
 
+    public List<Subject> createSubject(){
 
+        //considering there are 3 subjects
+        List<Subject>subjects=new ArrayList<>();
 
+        for(int i=0;i<3;i++) {
+            Subject subject = new Subject();
+
+            System.out.println("Enter name subject: ");
+            String name = scanner.next();
+            subject.setName(name);
+
+            System.out.println("Enter marks of subject: ");
+            int marks = scanner.nextInt();
+            subject.setMarks(marks);
+
+            subjects.add(subject);
+        }
+
+        return subjects;
     }
 }
