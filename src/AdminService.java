@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class AdminService {
     List<Student>students=new ArrayList<>();
     Scanner scanner=new Scanner(System.in);
-    public List<Student>createStudent(){
+
+    public Student createStudent(){
         Student student=new Student();
         System.out.println("Enter the studentId: ");
         int id= scanner.nextInt();
@@ -31,7 +32,7 @@ public class AdminService {
         List<Subject>subjects=createSubject();
         student.setSubjects(subjects);
 
-        students.add(student);
+      return student;
     }
 
     public List<Subject> createSubject(){
@@ -54,5 +55,13 @@ public class AdminService {
         }
 
         return subjects;
+    }
+
+    //view all the student marks
+
+    public void viewStudents(List<Student> students){
+        for(Student s:students){
+            System.out.println(s);
+        }
     }
 }
