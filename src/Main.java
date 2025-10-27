@@ -6,7 +6,6 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-
         while(true){
             Scanner scanner=new Scanner(System.in);
             AdminService adminService=new AdminService();
@@ -108,10 +107,9 @@ public class Main {
                 default:
                     System.out.println("Enter valid input");
                     break;
-
              }
 
-            }
-
         }
+
+    }
 }
