@@ -20,8 +20,10 @@ public class Main {
 
             int choice= scanner.nextInt();
             char c;
+
             switch (choice) {
                 case 1:
+
                     do {
                         System.out.println("1. Adding student");
                         System.out.println("2. View all Student");
@@ -78,7 +80,7 @@ public class Main {
 
                         switch (ch) {
                             case 1:
-                                studentServices.checkDetails(studentList);
+                                adminService.viewStudents(studentList);
                                 break;
                             case 2:
                                 studentServices.checkResult(studentList);
