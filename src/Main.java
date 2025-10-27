@@ -66,7 +66,6 @@ public class Main {
 
                         }
 
-
                     } while (c == 'Y' || c == 'y');
                     break;
 
@@ -110,10 +109,9 @@ public class Main {
                     System.out.println("Enter valid input");
                     break;
 
-            }
+             }
 
             }
 
         }
-
-    }
+}
