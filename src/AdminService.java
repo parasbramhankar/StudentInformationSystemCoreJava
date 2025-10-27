@@ -20,6 +20,8 @@ public class AdminService {
         String pass= scanner.next();
         student.setPassword(pass);
 
+        scanner.nextLine();
+
         System.out.println("Enter the name");
         String name=scanner.nextLine();
         student.setName(name);
@@ -64,4 +66,113 @@ public class AdminService {
             System.out.println(s);
         }
     }
+
+    public void updateStudentMarks(List<Student>students){
+
+        System.out.println("Enter studentId: ");
+        int id=scanner.nextInt();
+        boolean check=false;
+
+        for(Student student:students){
+
+            if(student.getStudentId()==id){
+                System.out.println("Enter subject name");
+                String name= scanner.next();
+
+                check=true;
+
+                List<Subject>subjects=student.getSubjects();
+
+                for(Subject s:subjects){
+                    if(s.getName().equals(name)){
+                        System.out.println("Subject found");
+                        System.out.println("Enter subject marks: ");
+                        int mark= scanner.nextInt();
+                        s.setMarks(mark);
+                    }
+
+                }
+
+            }
+        }
+
+        if(!check){
+            System.out.println("Student not found");
+        }
+    }
+
+    void updateUsernamePassword(List<Student>students){
+
+        System.out.println("Enter the student Id");
+        int id=scanner.nextInt();
+        boolean check=false;
+
+
+        for(Student s:students){
+            if(s.getStudentId()==id){
+                check=true;
+
+                boolean login=false;
+                System.out.println("Enter user name: ");
+                String userName=scanner.next();
+
+                if(s.getUsername().equals(userName)){
+                    System.out.println("Enter password: ");
+                    String pass= scanner.next();
+
+                    if(s.getPassword().equals(pass)){
+                        login=true;
+                    }
+                }
+
+                System.out.println("1. Change username");
+                System.out.println("2. Change password");
+                int n=scanner.nextInt();
+
+                switch (n){
+
+                    case 1:
+                       if(login){
+                        System.out.println("Enter new username");
+                        String user=scanner.next();
+                        s.setUsername(user);
+                        }else{
+                        System.out.println("Invalid username & Password");
+                        }
+                        break;
+                    case 2:
+                          if(login){
+                            System.out.println("Enter new password");
+                            String pass=scanner.next();
+                            s.setPassword(pass);
+                        }else{
+                            System.out.println("Invalid username & password");
+                        }
+                        break;
+                    default:
+                        System.out.println("Invalid input...!!");
+                        break;
+                }
+            }
+        }
+    }
+
+
+    //delete student
+    void deleteStudent(List<Student>studentList){
+        System.out.println("Enter the studentId");
+        int id= scanner.nextInt();
+
+        for(Student student:studentList){
+            if(student.getStudentId()==id){
+               studentList.remove(student);
+            }
+        }
+    }
+
+
+
+
+
+
 }
