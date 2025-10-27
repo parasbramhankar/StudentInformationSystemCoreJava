@@ -6,6 +6,7 @@ public class StudentServices {
     void checkDetails(List<Student>studentList){
         System.out.println("Enter the studentId");
         int id=scanner.nextInt();
+
         boolean check=false;
 
         for(Student student:studentList){
