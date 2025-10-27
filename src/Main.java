@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-
         while(true){
             Scanner scanner=new Scanner(System.in);
             AdminService adminService=new AdminService();
@@ -72,30 +71,44 @@ public class Main {
                     break;
 
                 case 2:
+
                     int ch;
-                    System.out.println("1. Check details");
-                    System.out.println("2. check result");
-                    ch= scanner.nextInt();
+                    do {
+                        System.out.println("1. Check details");
+                        System.out.println("2. check result");
+                        ch = scanner.nextInt();
 
-                    switch (ch) {
-                        case 1:
-                            studentServices.checkDetails(studentList);
-                            break;
-                        case 2:
-                            studentServices.checkResult(studentList);
-                            break;
-                        default:
-                            System.out.println("Invalid input..!!");
-                            break;
-                    }
+                        switch (ch) {
+                            case 1:
+                                studentServices.checkDetails(studentList);
+                                break;
+                            case 2:
+                                studentServices.checkResult(studentList);
+                                break;
+                            default:
+                                System.out.println("Invalid input..!!");
+                                break;
+                        }
+
+                        System.out.println("Do you what to continue the operations ?: ");
+                        while (true) {
+                            System.out.println("Enter Y/N");
+                            c = scanner.next().charAt(0);
+                            if (c == 'Y' || c == 'y' || c == 'n' || c == 'N') {
+                                break;
+                            } else {
+                                System.out.println("Enter valid input (y/n)");
+                            }
+
+                        }
+                    }while(c=='Y' || c=='y');
                      break;
-
                 case 3:
+                    System.exit(0);
                     break;
                 default:
                     System.out.println("Enter valid input");
-
-
+                    break;
 
             }
 
@@ -104,4 +117,3 @@ public class Main {
         }
 
     }
-}
