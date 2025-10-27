@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class AdminService {
 
         System.out.println("Enter the username for student");
         String username= scanner.next();
-        student.setName(username);
+        student.setUsername(username);
 
         System.out.println("Enter the password");
         String pass= scanner.next();
@@ -28,7 +29,7 @@ public class AdminService {
 
         System.out.println("Enter stream name");
         String stream= scanner.next();
-        student.setName(stream);
+        student.setStream(stream);
 
         System.out.println("Enter marks details");
         List<Subject>subjects=createSubject();
@@ -159,15 +160,22 @@ public class AdminService {
 
 
     //delete student
-    void deleteStudent(List<Student>studentList){
+    void deleteStudent(List<Student> studentList) {
         System.out.println("Enter the studentId");
-        int id= scanner.nextInt();
+        int id = scanner.nextInt();
 
-        for(Student student:studentList){
-            if(student.getStudentId()==id){
-               studentList.remove(student);
+        Iterator<Student> iterator = studentList.iterator();
+        while (iterator.hasNext()) {
+            Student student = iterator.next();
+            if (student.getStudentId() == id) {
+                iterator.remove(); // Safe removal
+                System.out.println("Student removed successfully!");
+                return;
             }
         }
+
+        System.out.println("Student not found!");
     }
+
 
 }
